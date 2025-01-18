@@ -1,0 +1,21 @@
+[2025-01-17T07:31:20.765+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-17T07:31:20.799+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T07:30:46.504548+00:00 [queued]>
+[2025-01-17T07:31:20.814+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T07:30:46.504548+00:00 [queued]>
+[2025-01-17T07:31:20.824+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-17T07:31:20.839+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_data> on 2025-01-17 07:30:46.504548+00:00
+[2025-01-17T07:31:20.845+0000] {standard_task_runner.py:63} INFO - Started process 8200 to run task
+[2025-01-17T07:31:20.848+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'load_data', 'manual__2025-01-17T07:30:46.504548+00:00', '--job-id', '138', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmpml05lbu8']
+[2025-01-17T07:31:20.851+0000] {standard_task_runner.py:91} INFO - Job 138: Subtask load_data
+[2025-01-17T07:31:20.907+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.load_data manual__2025-01-17T07:30:46.504548+00:00 [running]> on host airflow-scheduler
+[2025-01-17T07:31:21.005+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T07:30:46.504548+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T07:30:46.504548+00:00'
+[2025-01-17T07:31:21.006+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-17T07:31:21.008+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-17T07:31:21.009+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /spark-scripts/resources/load.py']
+[2025-01-17T07:31:21.019+0000] {subprocess.py:86} INFO - Output:
+[2025-01-17T07:31:23.377+0000] {subprocess.py:93} INFO - Terjadi error saat menulis ke BigQuery: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fa7b5dee890>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)"))
+[2025-01-17T07:31:23.595+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-01-17T07:31:23.597+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-17T07:31:23.624+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=load_data, run_id=manual__2025-01-17T07:30:46.504548+00:00, execution_date=20250117T073046, start_date=20250117T073120, end_date=20250117T073123
+[2025-01-17T07:31:23.677+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-17T07:31:23.700+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T07:31:23.703+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

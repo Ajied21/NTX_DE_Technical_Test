@@ -1,0 +1,42 @@
+[2025-01-17T06:58:07.057+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-17T06:58:07.136+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T06:57:35.655157+00:00 [queued]>
+[2025-01-17T06:58:07.161+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T06:57:35.655157+00:00 [queued]>
+[2025-01-17T06:58:07.167+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-17T06:58:07.205+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_data> on 2025-01-17 06:57:35.655157+00:00
+[2025-01-17T06:58:07.214+0000] {standard_task_runner.py:63} INFO - Started process 5425 to run task
+[2025-01-17T06:58:07.223+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'load_data', 'manual__2025-01-17T06:57:35.655157+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmp10ie59vy']
+[2025-01-17T06:58:07.229+0000] {standard_task_runner.py:91} INFO - Job 126: Subtask load_data
+[2025-01-17T06:58:07.359+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.load_data manual__2025-01-17T06:57:35.655157+00:00 [running]> on host airflow-scheduler
+[2025-01-17T06:58:07.618+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T06:57:35.655157+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T06:57:35.655157+00:00'
+[2025-01-17T06:58:07.620+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-17T06:58:07.622+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-17T06:58:07.624+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /spark-scripts/resources/load.py']
+[2025-01-17T06:58:07.639+0000] {subprocess.py:86} INFO - Output:
+[2025-01-17T06:58:09.804+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-01-17T06:58:09.805+0000] {subprocess.py:93} INFO -   File "/spark-scripts/resources/load.py", line 131, in <module>
+[2025-01-17T06:58:09.806+0000] {subprocess.py:93} INFO -     load()
+[2025-01-17T06:58:09.806+0000] {subprocess.py:93} INFO -   File "/spark-scripts/resources/load.py", line 76, in load
+[2025-01-17T06:58:09.807+0000] {subprocess.py:93} INFO -     transactions = transactions.with_columns(
+[2025-01-17T06:58:09.807+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/polars/dataframe/frame.py", line 7258, in with_columns
+[2025-01-17T06:58:09.808+0000] {subprocess.py:93} INFO -     self.lazy()
+[2025-01-17T06:58:09.808+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.10/site-packages/polars/lazyframe/frame.py", line 1501, in collect
+[2025-01-17T06:58:09.809+0000] {subprocess.py:93} INFO -     return wrap_df(ldf.collect())
+[2025-01-17T06:58:09.809+0000] {subprocess.py:93} INFO - exceptions.SchemaError: invalid series dtype: expected `Utf8`, got `date`
+[2025-01-17T06:58:09.991+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-01-17T06:58:09.992+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-17T06:58:10.003+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-17T06:58:10.008+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ETL, task_id=load_data, run_id=manual__2025-01-17T06:57:35.655157+00:00, execution_date=20250117T065735, start_date=20250117T065807, end_date=20250117T065810
+[2025-01-17T06:58:10.032+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 126 for task load_data (Bash command failed. The command returned a non-zero exit code 1.; 5425)
+[2025-01-17T06:58:10.048+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-01-17T06:58:10.074+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T06:58:10.079+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

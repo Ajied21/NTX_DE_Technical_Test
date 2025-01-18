@@ -1,0 +1,25 @@
+FROM apache/airflow:2.9.2-python3.10
+USER root
+
+# Install dependencies
+RUN apt update && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get install -y ant && \
+    apt-get install -y procps && \
+    apt-get clean;
+
+# Set Java environment variable
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+RUN export JAVA_HOME
+
+USER airflow
+
+# Install Python dependencies
+COPY ./docker/requirements_airflow.txt .
+RUN pip install --no-cache-dir -r requirements_airflow.txt
+
+# Copy DAGs to the Airflow DAGs folder
+COPY --chown=airflow:root ./dags /opt/airflow/dags
+
+# Copy Python module to a designated folder in the container
+COPY --chown=airflow:root ./spark-scripts /opt/airflow/spark-scripts

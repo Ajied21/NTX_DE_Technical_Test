@@ -1,0 +1,21 @@
+[2025-01-17T09:07:12.477+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-17T09:07:12.521+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T09:06:30.241052+00:00 [queued]>
+[2025-01-17T09:07:12.533+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-17T09:06:30.241052+00:00 [queued]>
+[2025-01-17T09:07:12.535+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-17T09:07:12.555+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_data> on 2025-01-17 09:06:30.241052+00:00
+[2025-01-17T09:07:12.562+0000] {standard_task_runner.py:63} INFO - Started process 15174 to run task
+[2025-01-17T09:07:12.567+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'load_data', 'manual__2025-01-17T09:06:30.241052+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmp153wdbu7']
+[2025-01-17T09:07:12.571+0000] {standard_task_runner.py:91} INFO - Job 165: Subtask load_data
+[2025-01-17T09:07:12.656+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.load_data manual__2025-01-17T09:06:30.241052+00:00 [running]> on host airflow-scheduler
+[2025-01-17T09:07:12.784+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T09:06:30.241052+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T09:06:30.241052+00:00'
+[2025-01-17T09:07:12.786+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-17T09:07:12.788+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-17T09:07:12.790+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /spark-scripts/resources/load.py']
+[2025-01-17T09:07:12.804+0000] {subprocess.py:86} INFO - Output:
+[2025-01-17T09:07:33.839+0000] {subprocess.py:93} INFO - Data berhasil diupload ke BigQuery!
+[2025-01-17T09:07:34.123+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-01-17T09:07:34.125+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-17T09:07:34.179+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=load_data, run_id=manual__2025-01-17T09:06:30.241052+00:00, execution_date=20250117T090630, start_date=20250117T090712, end_date=20250117T090734
+[2025-01-17T09:07:34.224+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-17T09:07:34.252+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T09:07:34.256+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

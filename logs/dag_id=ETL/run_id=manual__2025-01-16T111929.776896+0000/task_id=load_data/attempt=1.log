@@ -1,0 +1,21 @@
+[2025-01-16T11:19:57.780+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-16T11:19:57.853+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-16T11:19:29.776896+00:00 [queued]>
+[2025-01-16T11:19:57.867+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-16T11:19:29.776896+00:00 [queued]>
+[2025-01-16T11:19:57.869+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-16T11:19:57.885+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load_data> on 2025-01-16 11:19:29.776896+00:00
+[2025-01-16T11:19:57.890+0000] {standard_task_runner.py:63} INFO - Started process 6758 to run task
+[2025-01-16T11:19:57.894+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'load_data', 'manual__2025-01-16T11:19:29.776896+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmpe8uf5yej']
+[2025-01-16T11:19:57.897+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask load_data
+[2025-01-16T11:19:57.952+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.load_data manual__2025-01-16T11:19:29.776896+00:00 [running]> on host airflow-scheduler
+[2025-01-16T11:19:58.051+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-16T11:19:29.776896+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-16T11:19:29.776896+00:00'
+[2025-01-16T11:19:58.052+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-16T11:19:58.053+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-16T11:19:58.055+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /spark-scripts/resources/load.py']
+[2025-01-16T11:19:58.064+0000] {subprocess.py:86} INFO - Output:
+[2025-01-16T11:20:01.624+0000] {subprocess.py:93} INFO - Terjadi error saat menulis ke BigQuery: 400 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/spark-project-416002/jobs?uploadType=resumable: Provided Schema does not match Table spark-project-416002:ETL_Project.products. Field base_price has changed type from FLOAT to STRING
+[2025-01-16T11:20:01.900+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-01-16T11:20:01.901+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-16T11:20:01.933+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=load_data, run_id=manual__2025-01-16T11:19:29.776896+00:00, execution_date=20250116T111929, start_date=20250116T111957, end_date=20250116T112001
+[2025-01-16T11:20:01.969+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-16T11:20:01.992+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-16T11:20:01.996+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

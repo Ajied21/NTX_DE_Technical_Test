@@ -1,0 +1,139 @@
+[2025-01-17T03:59:54.669+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-17T03:59:54.697+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.transform_data manual__2025-01-17T03:59:43.864285+00:00 [queued]>
+[2025-01-17T03:59:54.705+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.transform_data manual__2025-01-17T03:59:43.864285+00:00 [queued]>
+[2025-01-17T03:59:54.706+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-17T03:59:54.719+0000] {taskinstance.py:2330} INFO - Executing <Task(SparkSubmitOperator): transform_data> on 2025-01-17 03:59:43.864285+00:00
+[2025-01-17T03:59:54.724+0000] {standard_task_runner.py:63} INFO - Started process 13492 to run task
+[2025-01-17T03:59:54.727+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'transform_data', 'manual__2025-01-17T03:59:43.864285+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmp96k1zj90']
+[2025-01-17T03:59:54.729+0000] {standard_task_runner.py:91} INFO - Job 80: Subtask transform_data
+[2025-01-17T03:59:54.769+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.transform_data manual__2025-01-17T03:59:43.864285+00:00 [running]> on host airflow-scheduler
+[2025-01-17T03:59:54.851+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-17T03:59:43.864285+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-17T03:59:43.864285+00:00'
+[2025-01-17T03:59:54.852+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-17T03:59:54.859+0000] {base.py:84} INFO - Using connection ID 'spark_main' for task execution.
+[2025-01-17T03:59:54.860+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --jars /spark-scripts/jars/jars_postgresql-42.2.20.jar --name arrow-spark /spark-scripts/resources/transform.py
+[2025-01-17T03:59:56.346+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-01-17T03:59:57.389+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkContext: Running Spark version 3.3.2
+[2025-01-17T03:59:57.410+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceUtils: ==============================================================
+[2025-01-17T03:59:57.411+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-01-17T03:59:57.411+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceUtils: ==============================================================
+[2025-01-17T03:59:57.412+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkContext: Submitted application: Data Transform
+[2025-01-17T03:59:57.427+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-01-17T03:59:57.435+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceProfile: Limiting resource is cpu
+[2025-01-17T03:59:57.435+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-01-17T03:59:57.467+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SecurityManager: Changing view acls to: airflow
+[2025-01-17T03:59:57.468+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SecurityManager: Changing modify acls to: airflow
+[2025-01-17T03:59:57.468+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SecurityManager: Changing view acls groups to:
+[2025-01-17T03:59:57.468+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SecurityManager: Changing modify acls groups to:
+[2025-01-17T03:59:57.469+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(airflow); groups with view permissions: Set(); users  with modify permissions: Set(airflow); groups with modify permissions: Set()
+[2025-01-17T03:59:57.634+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO Utils: Successfully started service 'sparkDriver' on port 46435.
+[2025-01-17T03:59:57.654+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkEnv: Registering MapOutputTracker
+[2025-01-17T03:59:57.683+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkEnv: Registering BlockManagerMaster
+[2025-01-17T03:59:57.700+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-01-17T03:59:57.700+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-01-17T03:59:57.704+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-01-17T03:59:57.719+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-c4a32432-acf1-453e-a00f-fdc9c10d13ab
+[2025-01-17T03:59:57.732+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-01-17T03:59:57.751+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-01-17T03:59:57.884+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-01-17T03:59:57.921+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 ERROR SparkContext: Failed to add /opt/bitnami/spark/jars/postgresql-42.2.18.jar to Spark environment
+[2025-01-17T03:59:57.922+0000] {spark_submit.py:641} INFO - java.io.FileNotFoundException: Jar /opt/bitnami/spark/jars/postgresql-42.2.18.jar not found
+[2025-01-17T03:59:57.922+0000] {spark_submit.py:641} INFO - at org.apache.spark.SparkContext.addLocalJarFile$1(SparkContext.scala:1959)
+[2025-01-17T03:59:57.923+0000] {spark_submit.py:641} INFO - at org.apache.spark.SparkContext.addJar(SparkContext.scala:2014)
+[2025-01-17T03:59:57.923+0000] {spark_submit.py:641} INFO - at org.apache.spark.SparkContext.$anonfun$new$12(SparkContext.scala:507)
+[2025-01-17T03:59:57.924+0000] {spark_submit.py:641} INFO - at org.apache.spark.SparkContext.$anonfun$new$12$adapted(SparkContext.scala:507)
+[2025-01-17T03:59:57.924+0000] {spark_submit.py:641} INFO - at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2025-01-17T03:59:57.924+0000] {spark_submit.py:641} INFO - at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2025-01-17T03:59:57.925+0000] {spark_submit.py:641} INFO - at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2025-01-17T03:59:57.925+0000] {spark_submit.py:641} INFO - at org.apache.spark.SparkContext.<init>(SparkContext.scala:507)
+[2025-01-17T03:59:57.926+0000] {spark_submit.py:641} INFO - at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2025-01-17T03:59:57.926+0000] {spark_submit.py:641} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2025-01-17T03:59:57.926+0000] {spark_submit.py:641} INFO - at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2025-01-17T03:59:57.926+0000] {spark_submit.py:641} INFO - at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2025-01-17T03:59:57.927+0000] {spark_submit.py:641} INFO - at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2025-01-17T03:59:57.927+0000] {spark_submit.py:641} INFO - at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2025-01-17T03:59:57.927+0000] {spark_submit.py:641} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2025-01-17T03:59:57.928+0000] {spark_submit.py:641} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2025-01-17T03:59:57.928+0000] {spark_submit.py:641} INFO - at py4j.Gateway.invoke(Gateway.java:238)
+[2025-01-17T03:59:57.928+0000] {spark_submit.py:641} INFO - at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2025-01-17T03:59:57.929+0000] {spark_submit.py:641} INFO - at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2025-01-17T03:59:57.929+0000] {spark_submit.py:641} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-01-17T03:59:57.929+0000] {spark_submit.py:641} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-01-17T03:59:57.930+0000] {spark_submit.py:641} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-01-17T03:59:57.983+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:57 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-01-17T03:59:58.021+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.5:7077 after 21 ms (0 ms spent in bootstraps)
+[2025-01-17T03:59:58.085+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250117035958-0033
+[2025-01-17T03:59:58.087+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250117035958-0033/0 on worker-20250117005035-172.18.0.6-44131 (172.18.0.6:44131) with 1 core(s)
+[2025-01-17T03:59:58.089+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20250117035958-0033/0 on hostPort 172.18.0.6:44131 with 1 core(s), 1024.0 MiB RAM
+[2025-01-17T03:59:58.091+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44171.
+[2025-01-17T03:59:58.092+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO NettyBlockTransferService: Server created on airflow-scheduler:44171
+[2025-01-17T03:59:58.093+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-01-17T03:59:58.100+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, airflow-scheduler, 44171, None)
+[2025-01-17T03:59:58.103+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO BlockManagerMasterEndpoint: Registering block manager airflow-scheduler:44171 with 434.4 MiB RAM, BlockManagerId(driver, airflow-scheduler, 44171, None)
+[2025-01-17T03:59:58.104+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, airflow-scheduler, 44171, None)
+[2025-01-17T03:59:58.106+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, airflow-scheduler, 44171, None)
+[2025-01-17T03:59:58.134+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250117035958-0033/0 is now RUNNING
+[2025-01-17T03:59:58.286+0000] {spark_submit.py:641} INFO - 25/01/17 03:59:58 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-01-17T03:59:58.437+0000] {spark_submit.py:641} INFO - Extracting data from PostgreSQL (products)...
+[2025-01-17T04:00:00.812+0000] {spark_submit.py:641} INFO - Extracting data from PostgreSQL (transactions)...
+[2025-01-17T04:00:00.871+0000] {spark_submit.py:641} INFO - Transforming data...
+[2025-01-17T04:00:03.891+0000] {spark_submit.py:641} INFO - +-------------+------------+--------------------+--------------------+----------+
+[2025-01-17T04:00:03.892+0000] {spark_submit.py:641} INFO - |   product_id|product_name|            category|        manufacturer|base_price|
+[2025-01-17T04:00:03.892+0000] {spark_submit.py:641} INFO - +-------------+------------+--------------------+--------------------+----------+
+[2025-01-17T04:00:03.893+0000] {spark_submit.py:641} INFO - |PROD-a7e8c7dd|            |               Books|             EcoTech|       476|
+[2025-01-17T04:00:03.893+0000] {spark_submit.py:641} INFO - |PROD-a9a7608e|            |   Sports & Outdoors|        GlobalBrands|         0|
+[2025-01-17T04:00:03.893+0000] {spark_submit.py:641} INFO - |PROD-38e2b395|            |      Home & Kitchen|                -683|       235|
+[2025-01-17T04:00:03.894+0000] {spark_submit.py:641} INFO - |PROD-048762fb|            |      Home & Kitchen|GlobalBrands_NOIS...|        20|
+[2025-01-17T04:00:03.894+0000] {spark_submit.py:641} INFO - |PROD-1f031ffb|            |               Books|        FashionHouse|       100|
+[2025-01-17T04:00:03.894+0000] {spark_submit.py:641} INFO - |PROD-83498373|            |Beauty & Personal...|           TechGiant|        13|
+[2025-01-17T04:00:03.894+0000] {spark_submit.py:641} INFO - |PROD-ac904d51|            |      Home & Kitchen|        GlobalBrands|       310|
+[2025-01-17T04:00:03.895+0000] {spark_submit.py:641} INFO - |PROD-db9600bd|            |Beauty & Personal...|         LuxuryGoods|         0|
+[2025-01-17T04:00:03.895+0000] {spark_submit.py:641} INFO - |PROD-b8112728|            |            66aa5854|             EcoTech|         0|
+[2025-01-17T04:00:03.895+0000] {spark_submit.py:641} INFO - |PROD-ef9b7568|            |         Electronics|                -763|       483|
+[2025-01-17T04:00:03.896+0000] {spark_submit.py:641} INFO - |PROD-e5586dc8|            |            Clothing|        FashionHouse|        58|
+[2025-01-17T04:00:03.896+0000] {spark_submit.py:641} INFO - |PROD-7b2cc2b9|            |               Books|           BookWorld|        70|
+[2025-01-17T04:00:03.896+0000] {spark_submit.py:641} INFO - |PROD-c1ca4f49|            |            Clothing|        GlobalBrands|       390|
+[2025-01-17T04:00:03.897+0000] {spark_submit.py:641} INFO - |PROD-2aec3a49|            |Beauty & Personal...|           TechGiant|       106|
+[2025-01-17T04:00:03.897+0000] {spark_submit.py:641} INFO - |PROD-8e56bce7|            |   Sports & Outdoors|        GlobalBrands|       200|
+[2025-01-17T04:00:03.897+0000] {spark_submit.py:641} INFO - |PROD-4ebd2705|            |   Sports & Outdoors|           TechGiant|       298|
+[2025-01-17T04:00:03.898+0000] {spark_submit.py:641} INFO - |PROD-346c0169|            |               Books|                -832|       276|
+[2025-01-17T04:00:03.898+0000] {spark_submit.py:641} INFO - |PROD-fb0847e9|            |   Sports & Outdoors|         LuxuryGoods|        47|
+[2025-01-17T04:00:03.898+0000] {spark_submit.py:641} INFO - |PROD-2ba0c741|            |      Home & Kitchen|             EcoTech|       356|
+[2025-01-17T04:00:03.898+0000] {spark_submit.py:641} INFO - |PROD-fc92cad8|            |Beauty & Personal...|             EcoTech|       169|
+[2025-01-17T04:00:03.899+0000] {spark_submit.py:641} INFO - +-------------+------------+--------------------+--------------------+----------+
+[2025-01-17T04:00:03.899+0000] {spark_submit.py:641} INFO - only showing top 20 rows
+[2025-01-17T04:00:03.900+0000] {spark_submit.py:641} INFO - 
+[2025-01-17T04:00:04.551+0000] {spark_submit.py:641} INFO - +--------------+-------------+-------------+----------+--------+-------------+
+[2025-01-17T04:00:04.552+0000] {spark_submit.py:641} INFO - |transaction_id|  customer_id|   product_id| sale_date|quantity|sales_channel|
+[2025-01-17T04:00:04.552+0000] {spark_submit.py:641} INFO - +--------------+-------------+-------------+----------+--------+-------------+
+[2025-01-17T04:00:04.553+0000] {spark_submit.py:641} INFO - |  TRX-b9d3003a|CUST-13ec1c49|PROD-02362c25|2023-08-24|       1|   Mobile App|
+[2025-01-17T04:00:04.553+0000] {spark_submit.py:641} INFO - |  TRX-7626dfcb|CUST-2f44ce56|PROD-b2d98f99|2023-04-22|       3|     In-Store|
+[2025-01-17T04:00:04.554+0000] {spark_submit.py:641} INFO - |  TRX-13bb1ad9|CUST-41ce8dde|PROD-874248ca|2023-03-07|       3|     In-Store|
+[2025-01-17T04:00:04.554+0000] {spark_submit.py:641} INFO - |  TRX-3b2ee2ed|CUST-84a65c98|PROD-d9ce9bf6|2023-11-02|       2|   Mobile App|
+[2025-01-17T04:00:04.555+0000] {spark_submit.py:641} INFO - |  TRX-1bea44f0|CUST-598ca9cc|PROD-b75bd875|2023-12-01|       3|             |
+[2025-01-17T04:00:04.555+0000] {spark_submit.py:641} INFO - |  TRX-d2227cc0|CUST-71e3c7a1|PROD-1162b4d0|2023-11-04|       1|   Mobile App|
+[2025-01-17T04:00:04.556+0000] {spark_submit.py:641} INFO - |  TRX-1d80af65|CUST-76adfe7e|PROD-e49a73fe|2023-01-30|       3|   Mobile App|
+[2025-01-17T04:00:04.556+0000] {spark_submit.py:641} INFO - |  TRX-fadc8cb5|CUST-e17bd378|             |2023-03-22|       1|       Online|
+[2025-01-17T04:00:04.556+0000] {spark_submit.py:641} INFO - |  TRX-d128f044|CUST-08372bc1|PROD-da582398|2023-05-18|       4|       Online|
+[2025-01-17T04:00:04.557+0000] {spark_submit.py:641} INFO - |  TRX-22583f56|CUST-d794065f|PROD-fda1424b|2023-09-30|       4|       Online|
+[2025-01-17T04:00:04.557+0000] {spark_submit.py:641} INFO - |  TRX-37d72859|CUST-474eda36|PROD-711b7e17|2023-09-19|       1|   Mobile App|
+[2025-01-17T04:00:04.558+0000] {spark_submit.py:641} INFO - |  TRX-671ea3ff|             |PROD-e6000f71|2023-08-23|       3|     In-Store|
+[2025-01-17T04:00:04.558+0000] {spark_submit.py:641} INFO - |  TRX-e833c6a2|CUST-74920ccf|PROD-d7886909|2023-04-21|       1|     In-Store|
+[2025-01-17T04:00:04.558+0000] {spark_submit.py:641} INFO - |  TRX-8785d373|CUST-4fcf45a3|PROD-9f6cd8f7|2023-01-08|       4|       Online|
+[2025-01-17T04:00:04.559+0000] {spark_submit.py:641} INFO - |  TRX-620aee5c|             |PROD-162255cc|2023-12-18|       3|     In-Store|
+[2025-01-17T04:00:04.559+0000] {spark_submit.py:641} INFO - |  TRX-559b37b7|CUST-090d0f47|PROD-872b117f|2023-06-09|       2|       Online|
+[2025-01-17T04:00:04.559+0000] {spark_submit.py:641} INFO - |  TRX-a399e777|CUST-2531d6bc|PROD-d4460bd4|2023-02-20|       3|       Online|
+[2025-01-17T04:00:04.560+0000] {spark_submit.py:641} INFO - |  TRX-1ecc091b|CUST-83bdc2d7|PROD-a7f3ebd9|2023-04-02|       2|       Online|
+[2025-01-17T04:00:04.560+0000] {spark_submit.py:641} INFO - |  TRX-869cbf68|CUST-34c73093|PROD-75d4410d|2023-12-12|       2|   Mobile App|
+[2025-01-17T04:00:04.560+0000] {spark_submit.py:641} INFO - |  TRX-557da634|CUST-98fedc1b|PROD-dbc1079e|2023-03-19|       2|             |
+[2025-01-17T04:00:04.561+0000] {spark_submit.py:641} INFO - +--------------+-------------+-------------+----------+--------+-------------+
+[2025-01-17T04:00:04.561+0000] {spark_submit.py:641} INFO - only showing top 20 rows
+[2025-01-17T04:00:04.562+0000] {spark_submit.py:641} INFO - 
+[2025-01-17T04:00:04.562+0000] {spark_submit.py:641} INFO - Saving transformed data products to PostgreSQL...
+[2025-01-17T04:00:06.256+0000] {spark_submit.py:641} INFO - 
+[2025-01-17T04:00:06.256+0000] {spark_submit.py:641} INFO - Saving transformed data products to PostgreSQL...
+[2025-01-17T04:00:07.153+0000] {spark_submit.py:641} INFO - Transformed data saved successfully!
+[2025-01-17T04:00:07.277+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-17T04:00:07.286+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=transform_data, run_id=manual__2025-01-17T03:59:43.864285+00:00, execution_date=20250117T035943, start_date=20250117T035954, end_date=20250117T040007
+[2025-01-17T04:00:07.319+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-17T04:00:07.336+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-17T04:00:07.338+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

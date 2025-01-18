@@ -1,0 +1,22 @@
+[2025-01-16T11:03:16.468+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-16T11:03:16.504+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-16T11:02:44.181300+00:00 [queued]>
+[2025-01-16T11:03:16.515+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.load_data manual__2025-01-16T11:02:44.181300+00:00 [queued]>
+[2025-01-16T11:03:16.516+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-16T11:03:16.534+0000] {taskinstance.py:2330} INFO - Executing <Task(SparkSubmitOperator): load_data> on 2025-01-16 11:02:44.181300+00:00
+[2025-01-16T11:03:16.539+0000] {standard_task_runner.py:63} INFO - Started process 4032 to run task
+[2025-01-16T11:03:16.543+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ETL', 'load_data', 'manual__2025-01-16T11:02:44.181300+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/ETL.py', '--cfg-path', '/tmp/tmpoplktxz1']
+[2025-01-16T11:03:16.545+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask load_data
+[2025-01-16T11:03:16.602+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL.load_data manual__2025-01-16T11:02:44.181300+00:00 [running]> on host airflow-scheduler
+[2025-01-16T11:03:16.713+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ajied(WhatsApp), Ajied(Email)' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-16T11:02:44.181300+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-16T11:02:44.181300+00:00'
+[2025-01-16T11:03:16.714+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-16T11:03:16.726+0000] {base.py:84} INFO - Using connection ID 'spark_main' for task execution.
+[2025-01-16T11:03:16.728+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --jars /spark-scripts/jars/jars_postgresql-42.2.20.jar --name arrow-spark /spark-scripts/resources/load.py
+[2025-01-16T11:03:18.771+0000] {spark_submit.py:641} INFO - 25/01/16 11:03:18 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-01-16T11:03:22.764+0000] {spark_submit.py:641} INFO - Terjadi error saat menulis ke BigQuery: Cannot upload files opened in text mode:  use open(filename, mode='rb') or open(filename, mode='r+b')
+[2025-01-16T11:03:23.163+0000] {spark_submit.py:641} INFO - 25/01/16 11:03:23 INFO ShutdownHookManager: Shutdown hook called
+[2025-01-16T11:03:23.165+0000] {spark_submit.py:641} INFO - 25/01/16 11:03:23 INFO ShutdownHookManager: Deleting directory /tmp/spark-ab5fee68-514d-47c8-ac60-ea2adea6ae56
+[2025-01-16T11:03:23.223+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-16T11:03:23.241+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=load_data, run_id=manual__2025-01-16T11:02:44.181300+00:00, execution_date=20250116T110244, start_date=20250116T110316, end_date=20250116T110323
+[2025-01-16T11:03:23.275+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-16T11:03:23.311+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-16T11:03:23.316+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
