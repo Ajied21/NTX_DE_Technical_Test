@@ -2581,3 +2581,17 @@
 [2025-01-18T06:28:01.988+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:01.988+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-01-18T06:28:02.008+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:02.007+0000] {dag.py:3954} INFO - Setting next_dagrun for Data_Ingestions_produts to None, run_after=None
 [2025-01-18T06:28:02.049+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Data_Ingestions_produts.py took 0.132 seconds
+[2025-01-18T06:28:32.712+0000] {processor.py:161} INFO - Started process (PID=1144) to work on /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:28:32.716+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Data_Ingestions_produts.py for tasks to queue
+[2025-01-18T06:28:32.723+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:32.722+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:28:32.807+0000] {processor.py:840} INFO - DAG(s) 'Data_Ingestions_produts' retrieved from /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:28:32.923+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:32.921+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-01-18T06:28:32.976+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:32.975+0000] {dag.py:3954} INFO - Setting next_dagrun for Data_Ingestions_produts to None, run_after=None
+[2025-01-18T06:28:33.065+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Data_Ingestions_produts.py took 0.380 seconds
+[2025-01-18T06:29:03.767+0000] {processor.py:161} INFO - Started process (PID=1164) to work on /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:29:03.769+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Data_Ingestions_produts.py for tasks to queue
+[2025-01-18T06:29:03.771+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.770+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:29:03.792+0000] {processor.py:840} INFO - DAG(s) 'Data_Ingestions_produts' retrieved from /opt/airflow/dags/Data_Ingestions_produts.py
+[2025-01-18T06:29:03.827+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.826+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-01-18T06:29:03.847+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.847+0000] {dag.py:3954} INFO - Setting next_dagrun for Data_Ingestions_produts to None, run_after=None
+[2025-01-18T06:29:03.887+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Data_Ingestions_produts.py took 0.127 seconds

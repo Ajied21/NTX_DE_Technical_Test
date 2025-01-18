@@ -2588,3 +2588,17 @@
 [2025-01-18T06:28:01.999+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:01.999+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-01-18T06:28:02.017+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:02.017+0000] {dag.py:3954} INFO - Setting next_dagrun for e_commerce to None, run_after=None
 [2025-01-18T06:28:02.050+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/e_commerce.py took 0.121 seconds
+[2025-01-18T06:28:32.738+0000] {processor.py:161} INFO - Started process (PID=1147) to work on /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:28:32.742+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/e_commerce.py for tasks to queue
+[2025-01-18T06:28:32.749+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:32.748+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:28:32.833+0000] {processor.py:840} INFO - DAG(s) 'e_commerce' retrieved from /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:28:32.958+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:32.957+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-01-18T06:28:33.009+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:33.008+0000] {dag.py:3954} INFO - Setting next_dagrun for e_commerce to None, run_after=None
+[2025-01-18T06:28:33.097+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/e_commerce.py took 0.387 seconds
+[2025-01-18T06:29:03.780+0000] {processor.py:161} INFO - Started process (PID=1167) to work on /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:29:03.781+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/e_commerce.py for tasks to queue
+[2025-01-18T06:29:03.783+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.783+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:29:03.803+0000] {processor.py:840} INFO - DAG(s) 'e_commerce' retrieved from /opt/airflow/dags/e_commerce.py
+[2025-01-18T06:29:03.842+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.842+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-01-18T06:29:03.862+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:29:03.862+0000] {dag.py:3954} INFO - Setting next_dagrun for e_commerce to None, run_after=None
+[2025-01-18T06:29:03.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/e_commerce.py took 0.122 seconds
