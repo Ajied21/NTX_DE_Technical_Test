@@ -31212,3 +31212,27 @@ File Path                                          PID    Runtime      # DAGs   
 /opt/airflow/dags/e_commerce.py                                             1           0  0.16s           2025-01-18T06:25:58
 /opt/airflow/dags/Data_Ingestions_produts.py                                1           0  0.15s           2025-01-18T06:25:57
 ================================================================================
+[2025-01-18T06:26:44.404+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ETL.py                                                    1           0  0.25s           2025-01-18T06:26:28
+/opt/airflow/dags/Data_Ingestions_transactions.py                           1           0  0.20s           2025-01-18T06:26:28
+/opt/airflow/dags/Data_Ingestions_produts.py                                1           0  0.19s           2025-01-18T06:26:28
+/opt/airflow/dags/e_commerce.py                                             1           0  0.15s           2025-01-18T06:26:29
+================================================================================
+[2025-01-18T06:27:13.251+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-01-18T06:27:13.313+0000] {manager.py:740} INFO - There are 4 files in /opt/airflow/dags
+[2025-01-18T06:27:14.850+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ETL.py                                                    1           0  0.57s           2025-01-18T06:27:00
+/opt/airflow/dags/Data_Ingestions_transactions.py                           1           0  0.48s           2025-01-18T06:27:00
+/opt/airflow/dags/Data_Ingestions_produts.py                                1           0  0.48s           2025-01-18T06:27:00
+/opt/airflow/dags/e_commerce.py                                             1           0  0.43s           2025-01-18T06:27:01
+================================================================================

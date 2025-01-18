@@ -2581,3 +2581,10 @@
 [2025-01-18T06:27:30.430+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:27:30.430+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-01-18T06:27:30.446+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:27:30.445+0000] {dag.py:3954} INFO - Setting next_dagrun for ETL to None, run_after=None
 [2025-01-18T06:27:30.473+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ETL.py took 0.182 seconds
+[2025-01-18T06:28:00.839+0000] {processor.py:161} INFO - Started process (PID=1114) to work on /opt/airflow/dags/ETL.py
+[2025-01-18T06:28:00.841+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ETL.py for tasks to queue
+[2025-01-18T06:28:00.843+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:00.842+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ETL.py
+[2025-01-18T06:28:00.870+0000] {processor.py:840} INFO - DAG(s) 'ETL' retrieved from /opt/airflow/dags/ETL.py
+[2025-01-18T06:28:00.906+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:00.906+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-01-18T06:28:00.923+0000] {logging_mixin.py:188} INFO - [2025-01-18T06:28:00.922+0000] {dag.py:3954} INFO - Setting next_dagrun for ETL to None, run_after=None
+[2025-01-18T06:28:00.961+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ETL.py took 0.131 seconds
