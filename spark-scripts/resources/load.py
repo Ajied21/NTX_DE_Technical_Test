@@ -8,8 +8,8 @@ from google.cloud import bigquery
 service_account_key = "/scripts/gcp/Service_Account.json"  # Path to the service account JSON key
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = service_account_key  # Set the environment variable for authentication
 
-project_id = "spark-project-416002"  # Google Cloud Project ID
-dataset_id = "ETL_Project"  # BigQuery Dataset ID
+project_id = "spark-project-416002"  # Google Cloud My Project ID
+dataset_id = "ETL_Project"  # BigQuery Dataset My ID
 
 # Load environment variables from a .env file
 dotenv_path = Path('/opt/app/.env')  # Path to the .env file

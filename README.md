@@ -10,9 +10,9 @@ Thank you for this opportunity! 😊
 
 This repository is an answer I have created based on the given challenge, containing three structured challenge directories:
 - **Soal 1** – Data Transformation and Analysis Case
-In the answer I gave in the form of a jupyter file or notebooks, please open the notebooks folder or please click this link ..
+In the answer I gave in the form of a jupyter file or notebooks, please open the notebooks folder or please click this url https://github.com/Ajied21/NTX_DE_Technical_Test/tree/main/notebooks
 - **Soal 2** – SQL Case
-In the answer I gave in the form of a SQL file and description.txt, please open the sql folder or please click this link ..
+In the answer I gave in the form of a SQL file and description.txt, please open the sql folder or please click this url https://github.com/Ajied21/NTX_DE_Technical_Test/tree/main/sql
 - **Soal 3** – ETL Case
 Please follow the `Run Job` command below or you can read it first for some information about the ETL case study.
 
