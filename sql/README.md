@@ -1,3 +1,5 @@
+# Description
+
 **Test Case 1: Channel Analysis**
 
 -- Define a Common Table Expression (CTE) to calculate total revenue per country
