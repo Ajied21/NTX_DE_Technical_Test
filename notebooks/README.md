@@ -33,3 +33,4 @@ This Python script is designed to analyze and visualize e-commerce session data.
 Install the required libraries using:
 ```bash
 pip install pandas plotly
+pip install plotly
