@@ -1,0 +1,110 @@
+# Description
+
+**Test Case 1: Channel Analysis**
+
+-- Define a Common Table Expression (CTE) to calculate total revenue per country
+WITH CountryRevenue AS (
+    SELECT 
+        country,  -- Select the country column
+        SUM("totalTransactionRevenue") AS total_revenue  -- Calculate the total revenue per country
+    FROM e_commerce_session  -- From the e_commerce_session table
+    GROUP BY country  -- Group the results by country
+    ORDER BY total_revenue DESC  -- Sort the results by total revenue in descending order
+),
+-- Define another CTE to calculate revenue per channel for each country
+ChannelRevenue AS (
+    SELECT 
+        "channelGrouping",  -- Select the channelGrouping column
+        country,  -- Select the country column
+        SUM("totalTransactionRevenue") AS channel_revenue  -- Calculate the total revenue per channel
+    FROM e_commerce_session  -- From the e_commerce_session table
+    GROUP BY "channelGrouping", country  -- Group the results by both channel and country
+)
+-- Main query: join the two CTEs to get the channel revenue per country along with the total country revenue
+SELECT 
+    cr."channelGrouping",  -- Select the channel grouping
+    cr.country,  -- Select the country
+    cr.channel_revenue  -- Select the channel revenue
+FROM ChannelRevenue cr  -- From the ChannelRevenue CTE
+INNER JOIN CountryRevenue ctry ON cr.country = ctry.country  -- Join the CTEs on the country field
+ORDER BY ctry.total_revenue DESC, cr.channel_revenue DESC  -- Sort by country total revenue, then by channel revenue, both in descending order
+LIMIT 5;  -- Limit the results to the top 5 rows
+
+
+**Test Case 2: User Behavior Analysis**
+
+-- Define a Common Table Expression (CTE) to calculate user metrics (average time on site, pageviews, and session quality) for each visitor
+WITH UserMetrics AS (
+    SELECT 
+        "fullVisitorId",  -- Select the fullVisitorId column (unique identifier for the visitor)
+        AVG("timeOnSite") AS avg_timeOnSite,  -- Calculate the average time on site per visitor
+        AVG("pageviews") AS avg_pageviews,  -- Calculate the average pageviews per visitor
+        AVG("sessionQualityDim") AS avg_sessionQualityDim  -- Calculate the average session quality per visitor
+    FROM e_commerce_session  -- From the e_commerce_session table
+    WHERE "fullVisitorId" IS NOT NULL  -- Filter out rows where fullVisitorId is NULL
+    GROUP BY "fullVisitorId"  -- Group the results by fullVisitorId (per visitor)
+),
+-- Define another CTE to calculate global averages for time on site and pageviews
+GlobalAverages AS (
+    SELECT 
+        AVG("timeOnSite") AS global_avg_timeOnSite,  -- Calculate the global average time on site
+        AVG("pageviews") AS global_avg_pageviews  -- Calculate the global average pageviews
+    FROM e_commerce_session  -- From the e_commerce_session table
+)
+-- Main query: select user metrics where average time on site is greater than global average and average pageviews is less than global average
+SELECT 
+    um."fullVisitorId",  -- Select the visitor ID
+    um.avg_timeOnSite,  -- Select the average time on site for the visitor
+    um.avg_pageviews,  -- Select the average pageviews for the visitor
+    um.avg_sessionQualityDim  -- Select the average session quality for the visitor
+FROM UserMetrics um  -- From the UserMetrics CTE
+CROSS JOIN GlobalAverages ga  -- Perform a cross join with the GlobalAverages CTE (this will create a Cartesian product)
+WHERE um.avg_timeOnSite > ga.global_avg_timeOnSite  -- Filter for visitors with average time on site greater than the global average
+  AND um.avg_pageviews < ga.global_avg_pageviews  -- Filter for visitors with average pageviews less than the global average
+ORDER BY um.avg_timeOnSite DESC;  -- Sort the results by average time on site in descending order
+
+
+**Test Case 3: Product Performance**
+
+-- Define a Common Table Expression (CTE) to calculate product performance metrics
+WITH ProductPerformance AS (
+    SELECT 
+        "v2ProductName",  -- Select the product name
+        SUM("totalTransactionRevenue") AS total_revenue,  -- Calculate total revenue for each product
+        SUM(transactions) AS total_quantity_sold,  -- Calculate total quantity of products sold
+        SUM(CASE  -- Calculate the total refund amount for the product
+            WHEN "eCommerceAction_type" = 2 THEN "productPrice" * "eCommerceAction_step"  -- Refund calculation based on the action type
+            ELSE 0  -- If it's not a refund action, the amount is 0
+        END) AS total_refund_amount  -- Total refund amount for each product
+    FROM 
+       e_commerce_session  -- From the e_commerce_session table
+    GROUP BY 
+        "v2ProductName"  -- Group the results by product name
+),
+-- Define another CTE to rank products based on net revenue and flag them for refunds
+RankedProducts AS (
+    SELECT 
+        "v2ProductName",  -- Select the product name
+        total_revenue,  -- Select the total revenue for the product
+        total_quantity_sold,  -- Select the total quantity sold for the product
+        total_refund_amount,  -- Select the total refund amount for the product
+        (total_revenue - total_refund_amount) AS net_revenue,  -- Calculate the net revenue (revenue after refunds)
+        CASE  -- Flag products with significant refunds
+            WHEN total_refund_amount > 0.1 * total_revenue THEN 'Flagged'  -- If refund amount is more than 10% of total revenue, flag the product
+            ELSE 'OK'  -- Otherwise, mark the product as 'OK'
+        END AS refund_flag  -- Flag indicating whether the product has excessive refunds
+    FROM 
+        ProductPerformance  -- From the ProductPerformance CTE
+)
+-- Main query: select product performance metrics and refund flag, and order by net revenue
+SELECT 
+    "v2ProductName",  -- Select the product name
+    total_revenue,  -- Select the total revenue for the product
+    total_quantity_sold,  -- Select the total quantity sold for the product
+    total_refund_amount,  -- Select the total refund amount for the product
+    net_revenue,  -- Select the net revenue for the product (after refunds)
+    refund_flag  -- Select the refund flag indicating whether the product is flagged or not
+FROM 
+    RankedProducts  -- From the RankedProducts CTE
+ORDER BY 
+    net_revenue DESC;  -- Sort the results by net revenue in descending order
